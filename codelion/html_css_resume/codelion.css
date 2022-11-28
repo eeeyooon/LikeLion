@@ -95,8 +95,21 @@ section {
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
+.title-box {
+  text-align: right;
+}
+
 .name-text {
   font-size: 17px;
   color: #7c7c7c;
   font-weight: bold;
+}
+
+.sns-img {
+  width: 12px;
+  height: 12px;
+}
+
+.sns-wrap {
+  text-align: right;
 }
