@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>:not() 부정 가상 클래스 테스트</title>
+    <style>
+      p:not(.classy) { color: red; }
+      body :last-child { color: blue;}
+      body :not(p) { color: green; }
+    </style>
+  </head>
+  <body>
+    <p>Some text.</p>
+    <p class="classy">Some other text.</p>
+    <span class="spanny">One more text<span>
+  </body>
+</html>
