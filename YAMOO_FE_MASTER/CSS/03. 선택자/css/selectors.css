@@ -1,0 +1,94 @@
+/*
+  ------------------------------------------------
+  CSS 선택자 (Selectors)
+  ------------------------------------------------
+
+  [요소 선택자 (Element Type Selector)]
+    figure { ... }
+
+
+  [그룹핑 (Grouping)]
+    a, abbr { ... }
+
+
+  [전체 선택자 (Universal Selector)]
+    * { ... }
+
+
+  [자손 선택자 (Descendent Selector)]
+    h1 abbr { ... }
+
+
+  [자식 선택자 (Child Selector)]
+    .parent > .child { ... }
+
+
+  [클래스 선택자 (Class Selector)]
+    .class { ... }
+
+
+  [멀티 클래스 선택자 (Muti Class Selector)]
+    .class1.class2 { ... }
+
+
+  [아이디 선택자 (ID Selector)]
+    #id { ... }
+
+
+  [속성 선택자 (Attribute Selector)]
+
+    [id]              { ... }
+    [class]           { ... }
+    [title]           { ... }
+    [shape][title]    { ... }
+
+    [id="about-css"]  { ... }
+    #about-css        { ... }
+
+    [class="note"]    { ... }
+    .note             { ... }
+
+    [href^="http://"] { ... }
+    [src$=".svg"]     { ... }
+    [src*="phone"]    { ... }
+
+
+  [가상 클래스 (Pseudo Class)]
+
+    :link         { ... }
+    :visited      { ... }
+
+    :hover        { ... }
+    :active       { ... }
+
+    :focus        { ... }
+    :focus:hover  { ... }
+    :focus:active { ... }
+
+    :first-child  { ... }
+    :last-child   { ... }
+    :nth-child(n) { ... }
+
+    :lang(ko)     { ... }
+
+
+  [가상 요소 (Pseudo Element)]
+
+    ::first-letter { ... }
+    ::first-line   { ... }
+    ::before       { ... }
+    ::after        { ... }
+
+*/
+
+/* 피규어 부분 코드
+  figure::before {
+    content: 'Figure';
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 0.3em 0.8em;
+    background: #222;
+    color: #fff;
+  }
+*/
