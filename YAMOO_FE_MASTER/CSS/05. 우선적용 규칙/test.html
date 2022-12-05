@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>:not() 부정 가상 클래스 테스트</title>
     <style>
+      p.first { color: yellow}
+      body :not(.classy) { color: green; }
       p:not(.classy) { color: red; }
-      body :last-child { color: blue;}
-      body :not(p) { color: green; }
+      span { color: blue;}
     </style>
   </head>
   <body>
-    <p>Some text.</p>
+    <p class="first">Some text.</p>
     <p class="classy">Some other text.</p>
     <span class="spanny">One more text<span>
   </body>
