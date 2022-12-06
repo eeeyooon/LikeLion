@@ -1,0 +1,202 @@
+@import url(./normalize.css);
+@import url(./reset.css);
+
+/* 숨김 콘텐츠 */
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  /* for legacy browers */
+  /* clip: rect(0 0 0 0); */
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+/* 기본 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 10px를 주는걸 권장하진 않지만 실습 위해서 */
+html {
+  font-size: 10px;
+}
+
+/* 링크 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 본문 스타일 */
+body {
+  /* em, rem 단위를 사용해보기
+  여기서 Root Element는 HTML. rem은 상속과는 상관x */
+  font-size: 1.4rem;
+  color: #212121;
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: 300;
+}
+
+/* 레이아웃 */
+.header,
+.visual,
+.main,
+.slogan,
+.footer-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* 헤더 */
+.header {
+  background-color: #fff;
+  padding: 0 30px;
+  border-radius: 0 0 15px 15px;
+  position: relative;
+}
+
+/* 로고 */
+.logo {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+}
+
+/* 텍스트 링크 모음 */
+.member {
+  text-align: right;
+  padding: 4px 0;
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  /* position: relative;
+  right: -10px; */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  transform: translateX(10px);
+}
+
+.member li {
+  /* background-color: pink; */
+  display: inline-block;
+}
+
+.member a {
+  padding: 6px 10px;
+  display: inherit;
+  text-transform: uppercase;
+}
+
+/* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의. */
+/* .member li:last-child a {
+  padding-right: 0;
+} */
+
+.divider {
+  margin-right: 4px;
+}
+
+/* 메인 메뉴 */
+.navigation {
+  padding-bottom: 80px;
+}
+
+.menu {
+  border-top: 2px solid currentColor;
+  background-color: cornflowerblue;
+  background: #e85e2c
+    linear-gradient(
+      to bottom,
+      #ef9126 0%,
+      #e85e2c 35%,
+      #e85e2c 70%,
+      #ef9126 100%
+    );
+  border-radius: 0 0 5px 5px;
+  /* 높이를 고정해줬으니까 flow-root는 없어도 됨 */
+  /* display: flow-root; */
+  padding-left: 230px;
+  height: 47px;
+}
+
+/* 이 방법도 있음. */
+/* .menu-item:first-child {
+  margin-left: 235px;
+} */
+
+.menu-item {
+  float: left;
+  border-left: 2px solid #fff;
+}
+
+.menu-button {
+  border: 0;
+  background: transparent;
+  line-height: 45px;
+  padding: 0 23px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+.sub-menu {
+  background-color: pink;
+  position: absolute;
+  display: none;
+}
+
+/* 비주얼 */
+.visual {
+  background-color: orange;
+  height: 10vh;
+}
+
+/* 메인 */
+.main {
+  background-color: lightgreen;
+  height: 50vh;
+  display: flow-root;
+  padding: 0 15px;
+}
+
+.group {
+  margin: 0 15px;
+  float: left;
+}
+
+.group1 {
+  background-color: violet;
+  width: 250px;
+}
+.group2 {
+  background-color: salmon;
+  width: 380px;
+}
+.group3 {
+  background-color: gold;
+  width: 190px;
+}
+
+/* 슬로건 */
+.slogan {
+  background-color: skyblue;
+  height: 10vh;
+  clear: both;
+}
+
+/* 푸터 */
+.footer {
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+}
+
+.footer-inner {
+  height: 15vh;
+  background-color: silver;
+}
