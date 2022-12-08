@@ -14,9 +14,9 @@ body {
 #header {
   width: 100%;
   /* height 120 */
-  height: 100px;
+  height: 120px;
   /* delete */
-  padding-top: 20px;
+  /* padding-top: 20px; */
   background: #e0e0e0;
 }
 
@@ -24,11 +24,14 @@ body {
   /* position fixed */
   /* top 20 */
   /* left, right */
-  margin-left: 20px;
-  margin-right: 20px;
+  position: fixed;
+  z-index: 100;
+  top: 20px;
+  left: 20px;
+  right: 20px;
   height: 73px;
-  background: rgba(255,255,255,0.93);
-  box-shadow: 0 5px 10px rgba(0,0,0,.25);
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 #header nav a {
@@ -66,6 +69,7 @@ body {
 
 #schema {
   /* position relative */
+  position: relative;
   width: 624px;
   height: 728px;
   margin: 25px auto;
@@ -78,10 +82,17 @@ body {
   /* left 50% */
   /* margin-left -65/2 */
   /* transform translateX */
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  margin-left: -32.5px;
+  /* transform: translateX(-50%); */
 }
 
 [class^="schema-"] {
   /* position absolute */
+  position: absolute;
+  opacity: 0.7;
   font-size: 0.7em;
   text-align: left;
   /* opacity */
@@ -91,13 +102,16 @@ body {
 }
 
 .schema-01 {
+  top: -8px;
+  right: 70px;
   /* top -8 */
   /* right 70 */
 }
 .schema-02 {
-
+  top: 20px;
+  right: 0;
 }
-/*
+
 .schema-03 {
   top: 110px;
   left: 106px;
@@ -142,7 +156,6 @@ body {
   bottom: -4px;
   right: 55px;
 }
-*/
 
 .sticky-demo {
   padding-top: 20px;
@@ -155,13 +168,16 @@ body {
 }
 
 .sticky-demo nav {
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
   /* position sticky */
   /* top 20 */
   margin-left: 20px;
   margin-right: 20px;
   height: 73px;
   background: #fff;
-  box-shadow: 0 5px 10px rgba(0,0,0,.25);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .sticky-demo nav h3 {

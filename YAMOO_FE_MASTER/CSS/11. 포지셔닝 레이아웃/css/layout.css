@@ -32,11 +32,69 @@
 }
 
 /* 상대(relative) 위치 설정 */
-.is-blue {
+/* 상대 = 자신이 가지고 있는 일반 흐름(화면상에서의 위치)을 기준점으로 이동함. 기준에 해당되는건 top, right, bottom, left. 
+*/
+/* .is-blue {
   position: relative;
-  /* 자신이 가지고 있는 일반 흐름을 기준으로. */
+  top: 30px;
+  right: -100px;
+  z-index: 1;
 }
 
+.is-yellow {
+  position: relative;
+  top: -30px;
+  left: 40px;
+  z-index: 1;
+}
+
+.is-green {
+  position: relative;
+  bottom: 300px;
+  left: 120px;
+  z-index: 2;
+} */
+
+/* 절대(absolute) 위치 설정 */
+
+/* .is-yellow {
+  position: absolute;
+  z-index: 100;
+  top: 20px;
+  right: 20px;
+}
+
+.is-green {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.is-blue {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.box-group {
+  position: relative;
+} */
+/* 노란색 박스의 위치는 이제 자신을 포함하는 부모 그룹인 .box-group의 위치에서 자리를 잡을 수 있음.   */
+/* 부모에 absolute를 주면 부모 또한 아래 요소가 인식하지못하고 위로 올라오려함. 그래서 absolute로 설정된 자식요소의 부모에겐 absolute보단 relative를 보통 적용시킴. */
+
 /* 고정(fixed) 위치 설정 */
+/* .is-yellow {
+  position: fixed;
+  top: initial;
+  left: 0;
+  bottom: 0;
+} */
 
 /* 달라붙는(sticky) 위치 설정 */
+/* 스크롤을 내리다가 자신의 위치에 왔을 때 고정되게 */
+
+.box-group .box {
+  position: sticky;
+  top: 0;
+  margin-bottom: 100px;
+}
