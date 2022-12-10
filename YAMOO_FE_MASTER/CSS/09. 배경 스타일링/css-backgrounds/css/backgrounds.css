@@ -1,0 +1,27 @@
+/*
+  ------------------------------------------------
+  CSS 배경(Background) 스타일링
+  ------------------------------------------------
+*/
+
+body {
+  background-image: url("../images/cloud-design-patterns.svg");
+  background-repeat: repeat-y;
+  background-position: 10px 40px;
+  background-size: 100px 100px;
+}
+
+#css-background {
+}
+
+.bg-image {
+}
+
+.is-floral {
+}
+
+.is-model {
+}
+
+.background-clip {
+}
