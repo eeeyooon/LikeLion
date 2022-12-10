@@ -1,0 +1,489 @@
+@import url(./fonts.css);
+@import url(./normalize.css);
+@import url(./reset.css);
+
+/* 숨김 콘텐츠 */
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  /* for legacy browers */
+  /* clip: rect(0 0 0 0); */
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+/* 기본 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 10px를 주는걸 권장하진 않지만 실습 위해서 */
+html {
+  font-size: 10px;
+}
+
+/* 링크 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 본문 스타일 */
+body {
+  /* em, rem 단위를 사용해보기
+  여기서 Root Element는 HTML. rem은 상속과는 상관x */
+  color: #212121;
+  font-size: 1.4rem;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  /* background-color: #ccc;
+  background-image: url(./images/bg_flower.png),
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: 50% 0, 0 0; */
+
+  /* 위 코드를 단축 표기법으로 */
+  background: url("./images/bg_flower.png") no-repeat 50% 0,
+    #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+      repeat 0 0;
+}
+
+/* 레이아웃 */
+.header,
+.visual,
+.main,
+.slogan,
+.footer-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* 헤더 */
+.header {
+  background-color: #fff;
+  padding: 0 30px;
+  border-radius: 0 0 15px 15px;
+  position: relative;
+}
+
+/* 로고 */
+.logo {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  /* 메뉴가 position 속성때문에 떠있고, 그 뒤에 로고 이미지가 가있었음. 그래서 z-index로 앞으로. */
+  z-index: 1;
+}
+
+/* 텍스트 링크 모음 */
+.member {
+  text-align: right;
+  padding: 4px 0;
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  /* position: relative;
+  right: -10px; */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  transform: translateX(10px);
+}
+
+.member li {
+  /* background-color: pink; */
+  display: inline-block;
+}
+
+.member a {
+  padding: 6px 10px;
+  display: inherit;
+  text-transform: uppercase;
+}
+
+/* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의. */
+/* .member li:last-child a {
+  padding-right: 0;
+} */
+
+.divider {
+  margin-right: 4px;
+}
+
+/* 메인 메뉴 */
+.navigation {
+  padding-bottom: 40px;
+}
+
+.menu {
+  border-top: 2px solid currentColor;
+  background-color: cornflowerblue;
+  background: #e85e2c
+    linear-gradient(
+      to bottom,
+      #ef9126 0%,
+      #e85e2c 35%,
+      #e85e2c 70%,
+      #ef9126 100%
+    );
+  border-radius: 0 0 5px 5px;
+  /* 높이를 고정해줬으니까 flow-root는 없어도 됨 */
+  /* display: flow-root; */
+  padding-left: 230px;
+  height: 47px;
+  position: relative;
+}
+
+.menu > li:nth-child(-n + 3) {
+  position: relative;
+}
+
+/* 이 방법도 있음. */
+/* .menu-item:first-child {
+  margin-left: 235px;
+} */
+
+.menu-item {
+  /* position: relative; */
+  float: left;
+  border-left: 2px solid #fff;
+}
+
+/* 구체성 점수 : 10점 */
+.menu-button {
+  border: 0;
+  background: transparent;
+  line-height: 45px;
+  padding: 0 23px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+/* 구체성 점수 : 20점 */
+.is-active .menu-button {
+  color: #ff0;
+}
+
+.is-active .menu-button::after {
+  content: "";
+  display: block;
+  border-top: 2px solid #000;
+}
+
+.sub-menu {
+  position: absolute;
+  /* left: 0; */
+  top: 47px;
+  padding: 4px 0;
+  display: none;
+}
+
+.menu-html,
+.menu-css,
+.menu-standards {
+  left: 0;
+}
+
+.menu-accessibility,
+.menu-qna,
+.menu-archive {
+  right: 0;
+}
+
+.is-active .sub-menu {
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-menu li {
+  display: inline-block;
+}
+
+.sub-menu a::before {
+  content: "\e805";
+  font-family: "fontello";
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* hover하거나 클릭했을 때 아이콘 변경 */
+.sub-menu a:hover::before,
+.sub-menu a:focus::before {
+  content: "\e801";
+}
+
+.sub-menu a {
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus {
+  color: #f00;
+}
+
+/* 비주얼 */
+/* 애니메이션을 시작할거라고 표시 
+애니메이션의 시작점 표시 : 0%, from
+애니메이션의 종료점 표시 : 100%, to */
+@keyframes moveEffect {
+  0% {
+    font-size: 12px;
+    /* color: rgba(0, 0, 0, 0.2); */
+    color: hsla(0, 0%, 0%, 0);
+    /* 위에 코드 안보이지만 적혀있음... */
+    transform: translate(0, 0);
+  }
+  100% {
+    font-size: 24px;
+    /* color: rgba(0, 0, 0, 1); */
+    color: hsla(0, 0, 0, 1);
+    /* 위에 코드 있음. */
+    transform: translate(400px, 75px);
+  }
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.visual {
+  /* background-color: pink; */
+  height: 120px;
+  position: relative;
+  /* 이번엔 .visual-text에 absoulte설정으로 박스늘어나는 것 해결 */
+}
+
+.visual::before,
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* 부모요소에 정확히 위치하게끔 */
+  /* before 와 after 를 부모요소의 똑같이 겹치게 하려고 width , height 100%  */
+  top: 0;
+  left: 0;
+  animation-name: fadeEffect;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.visual::before {
+  /* background-color: yellow; */
+
+  background: url(./images/ani_flower_01.png) no-repeat 0 -10px,
+    url(./images/ani_flower_02.png) no-repeat 600px 0;
+}
+
+.visual::after {
+  /* background-color: pink; */
+  background-image: url(./images/ani_flower_03.png),
+    url(./images/ani_flower_04.png);
+  background-repeat: no-repeat;
+  background-position: 300px 0, 800px 0;
+  animation-delay: 1000ms;
+}
+
+.visual-text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* background-color: cornflowerblue; */
+  animation: moveEffect 400ms ease-in-out forwards;
+
+  /* 상자 늘어나지 못하게 */
+  /* display: inline-block; */
+
+  /* 이걸 추가하면 .visual에 relative 추가해야함. */
+  /* position: absolute; */
+
+  /* 가상요소선택자 추가하면서 relative */
+
+  /* absolute, relative 다 가능함.
+  relative를 준 이유는 z-index로 ::after 올리려고
+  display:inline-block도 함께줘도 됨 
+  
+  그거 아니면 그냥 absolute만 줘도 됨! (두가지방식)
+  */
+  position: relative;
+  z-index: 1;
+}
+
+/* 메인 */
+.main {
+  background-color: #fff;
+  min-height: 450px;
+  display: flow-root;
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
+}
+
+.group {
+  margin: 0 15px;
+  float: left;
+}
+
+.group1 {
+  width: 250px;
+}
+.group2 {
+  background-color: salmon;
+  width: 380px;
+}
+.group3 {
+  background-color: gold;
+  width: 190px;
+}
+
+/* 로그인 영억 */
+
+.login {
+  background: orange radial-gradient(circle at right top, orange, orangered);
+  box-shadow: 5px 5px 0 0 #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form {
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  width: 4em;
+  /* 4em = 4글자 크기만큼 넣어라. */
+  display: inline-block;
+}
+
+.login-form input {
+  display: inline-block;
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  border: 0;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.sign {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 4px 10px;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign a {
+  display: inline-block;
+  /* padding주기 위해서 inline-block 혹은 block으로. 부모도 inline-block이니까 자식도 맞춰주는 편 */
+  font-size: 14px;
+  padding: 6px 0;
+  letter-spacing: -1px;
+}
+
+.sign a::before {
+  content: "\e804";
+  color: orangered;
+  font-family: "fontello";
+  margin-right: 8px;
+}
+
+/* 유효성 검사 배너 */
+
+.validation-list {
+  /* background-color: yellow; */
+  margin-top: 25px;
+  /* 위 로그인의 그림자만큼 줌. */
+}
+
+.validation-list li {
+  margin-top: 10px;
+}
+
+.validation-list a {
+  display: block;
+  background: url(./images/validation_icon.png) no-repeat 25px 50%,
+    #ccc linear-gradient(to bottom, #ccc, #eee);
+  /* text-align: center; */
+  padding: 8px 15px 8px 55px;
+  border-radius: 30px;
+  border: 1px solid #aaa;
+}
+
+.validation-list a:hover,
+.validation-list a:focus {
+  color: #f00;
+}
+
+/* 슬로건 */
+.slogan {
+  background-color: skyblue;
+  height: 10vh;
+  clear: both;
+}
+
+/* 푸터 */
+.footer {
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+}
+
+.footer-inner {
+  height: 15vh;
+  background-color: silver;
+}
