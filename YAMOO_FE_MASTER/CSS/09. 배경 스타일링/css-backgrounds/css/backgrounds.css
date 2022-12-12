@@ -5,23 +5,44 @@
 */
 
 body {
-  background-image: url("../images/cloud-design-patterns.svg");
-  background-repeat: repeat-y;
+  /* background-image: url("../images/cloud-design-patterns.svg");
+  background-repeat: no-repeat;
   background-position: 10px 40px;
+  background-attachment: fixed; */
+
+  background: transparent url("../images/cloud-design-patterns.svg") no-repeat 10px 40px fixed;
+
   background-size: 100px 100px;
 }
 
 #css-background {
+  margin-left: 70px;
 }
 
 .bg-image {
+  background: url("../images/NewYork-US.jpg") no-repeat center -60px;
+  background-size: cover;
+
 }
 
 .is-floral {
+
+  background: #000 url("../images/oriental-floral-pattern.svg") center;
+  background-size: 170px;
+
 }
 
 .is-model {
+  background: #000 url("../images/model.jpg") center;
+  background-size: 100px;
 }
 
 .background-clip {
+  box-sizing: border-box;
+  border: 20px solid #aaa;
+  padding: 20px;
+  background: url("../images/model.jpg") center;
+  background-size: contain;
+  background-clip: content-box;
+
 }
