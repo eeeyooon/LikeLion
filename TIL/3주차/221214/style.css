@@ -1,0 +1,1029 @@
+@import url(./fonts.css);
+@import url(./normalize.css);
+@import url(./reset.css);
+@import url(./fontello.css);
+@import url(./module.css);
+
+/* 숨김 콘텐츠 */
+.a11y-hidden,
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  /* for legacy browers */
+  /* clip: rect(0 0 0 0); */
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+/* 기본 스타일 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 10px를 주는걸 권장하진 않지만 실습 위해서 */
+html {
+  font-size: 10px;
+}
+
+/* 링크 스타일 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 본문 스타일 */
+body {
+  /* em, rem 단위를 사용해보기
+  여기서 Root Element는 HTML. rem은 상속과는 상관x */
+  color: #212121;
+  font-size: 1.4rem;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  /* background-color: #ccc;
+  background-image: url(./images/bg_flower.png),
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: 50% 0, 0 0; */
+
+  /* 위 코드를 단축 표기법으로 */
+  background: url("./images/bg_flower.png") no-repeat 50% 0,
+    #ccc linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%)
+      repeat 0 0;
+}
+
+/* 레이아웃 */
+.header,
+.visual,
+.main,
+.slogan,
+.footer-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* 헤더 */
+.header {
+  background-color: #fff;
+  padding: 0 30px;
+  border-radius: 0 0 15px 15px;
+  position: relative;
+}
+
+/* 로고 */
+.logo {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  /* 메뉴가 position 속성때문에 떠있고, 그 뒤에 로고 이미지가 가있었음. 그래서 z-index로 앞으로. */
+  z-index: 1;
+}
+
+/* 텍스트 링크 모음 */
+.member {
+  text-align: right;
+  padding: 4px 0;
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  /* position: relative;
+  right: -10px; */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  transform: translateX(10px);
+}
+
+.member li {
+  /* background-color: pink; */
+  display: inline-block;
+}
+
+.member a {
+  padding: 6px 10px;
+  display: inherit;
+  text-transform: uppercase;
+}
+
+/* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의. */
+/* .member li:last-child a {
+  padding-right: 0;
+} */
+
+.divider {
+  margin-right: 4px;
+}
+
+/* 메인 메뉴 */
+.navigation {
+  padding-bottom: 40px;
+}
+
+.menu {
+  border-top: 2px solid currentColor;
+  background-color: cornflowerblue;
+  background: #e85e2c
+    linear-gradient(
+      to bottom,
+      #ef9126 0%,
+      #e85e2c 35%,
+      #e85e2c 70%,
+      #ef9126 100%
+    );
+  border-radius: 0 0 5px 5px;
+  /* 높이를 고정해줬으니까 flow-root는 없어도 됨 */
+  /* display: flow-root; */
+  padding-left: 230px;
+  height: 47px;
+  position: relative;
+}
+
+.menu > li:nth-child(-n + 3) {
+  position: relative;
+}
+
+/* 이 방법도 있음. */
+/* .menu-item:first-child {
+  margin-left: 235px;
+} */
+
+.menu-item {
+  /* position: relative; */
+  float: left;
+  border-left: 2px solid #fff;
+}
+
+/* 구체성 점수 : 10점 */
+.menu-button {
+  border: 0;
+  background: transparent;
+  line-height: 45px;
+  padding: 0 23px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+}
+
+/* 구체성 점수 : 20점 */
+.is-active .menu-button {
+  color: #ff0;
+}
+
+.is-active .menu-button::after {
+  content: "";
+  display: block;
+  border-top: 2px solid #000;
+}
+
+.sub-menu {
+  position: absolute;
+  /* left: 0; */
+  top: 47px;
+  padding: 4px 0;
+  display: none;
+}
+
+.menu-html,
+.menu-css,
+.menu-standards {
+  left: 0;
+}
+
+.menu-accessibility,
+.menu-qna,
+.menu-archive {
+  right: 0;
+}
+
+.is-active .sub-menu {
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-menu li {
+  display: inline-block;
+}
+
+.sub-menu a::before {
+  content: "\e805";
+  font-family: "fontello";
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* hover하거나 클릭했을 때 아이콘 변경 */
+.sub-menu a:hover::before,
+.sub-menu a:focus::before {
+  content: "\e801";
+}
+
+.sub-menu a {
+  display: inline-block;
+  padding: 6px 0;
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus {
+  color: #f00;
+}
+
+/* 비주얼 */
+/* 애니메이션을 시작할거라고 표시 
+애니메이션의 시작점 표시 : 0%, from
+애니메이션의 종료점 표시 : 100%, to */
+@keyframes moveEffect {
+  0% {
+    font-size: 12px;
+    /* color: rgba(0, 0, 0, 0.2); */
+    color: hsla(0, 0%, 0%, 0);
+    /* 위에 코드 안보이지만 적혀있음... */
+    transform: translate(0, 0);
+  }
+  100% {
+    font-size: 24px;
+    /* color: rgba(0, 0, 0, 1); */
+    color: hsla(0, 0, 0, 1);
+    /* 위에 코드 있음. */
+    transform: translate(400px, 75px);
+  }
+}
+
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.visual {
+  /* background-color: pink; */
+  height: 120px;
+  position: relative;
+  /* 이번엔 .visual-text에 absoulte설정으로 박스늘어나는 것 해결 */
+}
+
+.visual::before,
+.visual::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* 부모요소에 정확히 위치하게끔 */
+  /* before 와 after 를 부모요소의 똑같이 겹치게 하려고 width , height 100%  */
+  top: 0;
+  left: 0;
+  animation-name: fadeEffect;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.visual::before {
+  /* background-color: yellow; */
+
+  background: url(./images/ani_flower_01.png) no-repeat 0 -10px,
+    url(./images/ani_flower_02.png) no-repeat 600px 0;
+}
+
+.visual::after {
+  /* background-color: pink; */
+  background-image: url(./images/ani_flower_03.png),
+    url(./images/ani_flower_04.png);
+  background-repeat: no-repeat;
+  background-position: 300px 0, 800px 0;
+  animation-delay: 1000ms;
+}
+
+.visual-text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* background-color: cornflowerblue; */
+  animation: moveEffect 400ms ease-in-out forwards;
+
+  /* 상자 늘어나지 못하게 */
+  /* display: inline-block; */
+
+  /* 이걸 추가하면 .visual에 relative 추가해야함. */
+  /* position: absolute; */
+
+  /* 가상요소선택자 추가하면서 relative */
+
+  /* absolute, relative 다 가능함.
+  relative를 준 이유는 z-index로 ::after 올리려고
+  display:inline-block도 함께줘도 됨 
+  
+  그거 아니면 그냥 absolute만 줘도 됨! (두가지방식)
+  */
+  position: relative;
+  z-index: 1;
+}
+
+/* 메인 */
+.main {
+  background-color: #fff;
+  min-height: 450px;
+  display: flow-root;
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
+}
+
+.group {
+  margin: 0 15px;
+  float: left;
+}
+
+.group1 {
+  width: 250px;
+}
+.group2 {
+  /* background-color: salmon; */
+  width: 380px;
+}
+.group3 {
+  /* background-color: gold; */
+  width: 190px;
+}
+
+/* 로그인 영억 */
+
+.login {
+  background: orange radial-gradient(circle at right top, orange, orangered);
+  box-shadow: 5px 5px 0 0 #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-title {
+  color: #ff0;
+  font-size: 15px;
+  font-weight: 700;
+  text-indent: 10px;
+}
+
+.login-form {
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 5px;
+}
+
+.login-form label {
+  width: 4em;
+  /* 4em = 4글자 크기만큼 넣어라. */
+  display: inline-block;
+}
+
+.login-form input {
+  display: inline-block;
+  width: 90px;
+  height: 24px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+  border-radius: 3px;
+}
+
+.login-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 53px;
+  background-color: orangered;
+  border: 0;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.sign {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 4px 10px;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign a {
+  display: inline-block;
+  /* padding주기 위해서 inline-block 혹은 block으로. 부모도 inline-block이니까 자식도 맞춰주는 편 */
+  font-size: 14px;
+  padding: 6px 0;
+  letter-spacing: -1px;
+}
+
+.sign a::before {
+  content: "\e804";
+  color: orangered;
+  font-family: "fontello";
+  margin-right: 8px;
+}
+
+/* 유효성 검사 배너 */
+
+.validation-list {
+  margin-top: 25px;
+  /* 위 로그인의 그림자만큼 줌. */
+}
+
+.validation-list li {
+  margin-top: 10px;
+}
+
+.validation-list a {
+  display: block;
+  background: url(./images/validation_icon.png) no-repeat 25px 50%,
+    #ccc linear-gradient(to bottom, #ccc, #eee);
+  /* text-align: center; */
+  padding: 8px 15px 8px 55px;
+  border-radius: 30px;
+  border: 1px solid #aaa;
+}
+
+.validation-list a:hover,
+.validation-list a:focus {
+  color: #f00;
+}
+
+/* 웹 관련 용어 */
+.term {
+  margin-top: 20px;
+  background: #ccc linear-gradient(to bottom, #ccc, #eee);
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+  
+}
+
+.term-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.term-list {
+  /* background-color: yellow; */
+  margin-top: 10px;
+}
+
+.term-list div {
+  /* background-color: pink; */
+  margin-top: 10px;
+  display: flow-root;
+}
+
+ .term-list-subject {
+  /* background-color: lime;  */
+  color: #295E99;
+  font-weight: 500;
+  float: right;
+  /*width 추가*/
+  width: 145px;
+}
+
+.term-list-thumbnail {
+  /* background-color: purple; */
+  float: left;
+}
+
+.term-list-thumbnail img {
+  vertical-align: middle;
+  /* display:block을 했던 것처럼 gap이 사라짐. */
+
+  /* float는 주위 요소 배치에 영향을 줌.
+     (첫번째 이미지 높이때문에 두번째 이미지가 밑으로 못내려감.) */
+  /* 이 문제 해결. float 주체 요소의 부모(div)에게 flow-root 주면, div는 독립적인 공간을 갖게 됨.(분홍색)  */
+}
+
+.term-list-brief {
+  /* background-color: coral; */
+  /*width 추가*/
+  width: 145px;
+  float: right;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.cross .term-list-thumbnail {
+  float: right;
+}
+
+.cross .term-list-subject, .cross .term-list-brief {
+  float: left;
+}
+
+/* 검색 */
+.search-form {
+  background: #ccc linear-gradient(to bottom, #ccc, #eee);
+  border: 1px solid #aaa;
+  border-radius: 15px 15px 0 0;
+  padding: 15px 20px 10px 20px;
+  width: 380px;
+}
+
+.search-form-inner {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  
+}
+
+.form-group {
+  /* background-color: pink; */
+  flex-grow: 1;
+  /* 분홍상자(flex item)가 확대됨. */
+  display: flex;
+  /* 라벨과 input도 늘리기 위해 얘(부모)를 flex로 */
+  padding-right: 10px;
+  align-items: center;
+}
+
+.form-group-label {
+  font-weight: 600;
+  /* white-space: nowrap; */
+  margin-right: 10px;
+  flex-shrink: 0;
+  /* white-space는 꼭 flex item이 아니라도 쓸 수 있는데 flex item일땐 flex-shrink로 해결 가능. */
+  
+}
+
+.form-group-input {
+  height: 24px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 1px 1px 1px 5px;
+  flex-grow: 1;
+  /* .form-group을 flex로 해놓고 input에 flex-grow를 줘서 입력창이 분홍상자(.form-group영역) 끝까지 늘어나도록. */
+
+  min-width: 0;
+  width: 100%;
+  /* min-width: 0;
+  max-width: 100%; */
+  /* 파폭에선 입력창들이 튀어나옴. 이런 이슈들 해결위해 > 해결안됨; >> width100%로*/
+
+}
+
+.search-button {
+  /* white-space: nowrap; */
+  /* > 이건 flex 아닐 때도 사용 가능. */
+  flex-shrink: 0;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  border: 0;
+  height: 24px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+/* 공지사항 및 자료실 */
+.board {
+  /* background-color: yellow; */
+  margin-top: 20px;
+  position: relative;
+}
+
+.tab-list {
+  /* background-color: lime; */
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.tab {
+  border: 1px solid #aaa;
+  background-color: #ccc;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+  color: #666;
+}
+
+.is-select.tab {
+  background-color: #fff;
+  color: #e85e2c;
+  border-color: currentColor currentColor #fff currentColor;
+}
+
+.tab-panel {
+  /* background-color: pink; */
+  display: none;
+  margin-top: 15px;
+}
+
+.is-select.tab-panel {
+  /*  is-select일때 display:block;함 */
+  display: block;
+}
+/* .is-select가 아닐때 display:none;은 하면 안됨. 
+  그럼 버튼도 패널도 다 사라짐.*/
+
+
+.board-list li {
+  /* background-color: salmon; */
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.board-list a {
+  /* background-color: skyblue; */
+  flex-grow: 1;
+  /* flex-grow를 주면서 링크를 클릭할 수 있는 영역이 늘어남. (a의 영역이 여백끝까지 채워짐) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board-list time {
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.board-more {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+
+.tab-panel .icon-right-open::before {
+  color: hsla(110, 50%, 30%, 1);
+}
+
+/* 새소식 */
+
+.news {
+  /* background-color: yellow; */
+  position: relative;
+  margin-top: 20px;
+}
+
+.news::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 80%;
+  height: 1px;
+  background: #aaa linear-gradient(to right, #ccc, #fff);
+}
+
+.news-link {
+  /* background-color: pink; */
+  /* 배경색이 보이지 않음. a태그는 인라인 상자. 
+  렌더링하려고 하자 인라인은 블록을 포함하지 못하는게 맞지만 HTML5에서부터는 가능하게 됨.
+  저 a태그는 투명 모델임. 그래서 문법상 허용은 하지만
+  여전히 인라인 상자이기 때문에 색상은 보이지 않음.
+  block을 주면 색상이 보임. */
+  display: block;
+}
+
+.news-title {
+  color: #e85e2c;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.news-item {
+  /* background-color: skyblue; */
+  margin-top: 35px;
+  position: relative;
+  padding-left: 130px;
+}
+
+
+.news-item-title {
+  /* background-color: orange; */
+  font-weight: 500;
+}
+
+.news-item-date {
+  /* background-color: lightgreen; */
+  display: block;
+  margin: 5px 0 10px;
+}
+
+.news-item-brief {
+  /* background-color: darksalmon; */
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.news-item-thumbnail {
+  /* background-color: greenyellow; */
+  position: absolute;
+  top: 2px;
+  left: 0;
+  text-align: center;
+}
+
+.news-item-thumbnail img {
+  box-shadow: 0 15px 10px 5px #ccc;
+  margin-bottom: 15px;
+}
+
+.news-more {
+  /* background-color: coral; */
+  position: absolute;
+  /* absolute가 되며 영역을 차지 하지 않음. (섹션의 배경색인 노란색을 벗어남.) 위에 독립적으로 떠있는 상태 > block 상태라 (width, height 모두 auto)*/
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+
+  /* padding을 주고 top, right를 같은 값을 -로 주면 위치는 동일하지만 클릭할 수 있는 영역이 (a링크영역) 넓어지기 때문에 사용자 입장에서 좀더
+  편리할 수 있으니 padding주는 것. */
+}
+
+.news-more::before {
+  color: hsla(110, 50%, 30%, 1);
+}
+
+/* 신규 이벤트 및 관련 사이트 */
+
+
+.event {
+  border-bottom: 1px solid #aaa;
+}
+
+.event-title {
+  display: inline-block;
+}
+
+.event-button-wrapper {
+  /* background-color: yellow; */
+  height: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 5px;
+  float: right;
+}
+
+#eventDetail {
+  /* background-color: pink; */
+  clear: both;
+}
+
+
+/* IR 기법 -> Image Replacement */
+.event-button {
+  width: 19px;
+  height: 18px;
+  border: 0;
+  padding: 18px 0 0 0;
+  background: url("./images/back_forward.png") no-repeat;
+}
+
+.event-button-next {
+  background-position: -36px 0;
+}
+
+.event-button:focus {
+  outline-offset: -2px; 
+}
+
+
+.event-thumbnail, .event-brief {
+  margin: 10px 0;
+
+}
+
+
+.event-thumbnail im {
+  border: 1px solid #aaa;
+  box-shadow: 5px 5px 0 0 #ccc;
+}
+
+.event-brief {
+  line-height: 1.5;
+}
+
+.related {
+  margin-top: 10px;
+}
+
+.related-list {
+  background-color: #fff;
+  margin-top: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 27px;
+  overflow: hidden;
+  transition: height 400ms 0ms, padding 400ms 400ms;
+}
+
+.related-list li {
+  /* background-color: yellow; */
+  height: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.related-list a {
+  /* background-color: pink; */
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+.related-list:hover, .related-list:focus {
+  height: 147px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* 공통 더보기 스타일 */
+.more {
+  padding: 8px;
+}
+
+.more::before {
+  color: hsla(110, 50%, 30%, 1);
+}
+
+/* 인기 사이트 */
+
+.favorite {
+  /* background-color: pink; */
+  position: relative;
+}
+
+.favorite-list {
+  /* background-color: yellow; */
+  list-style: none;
+  /* 혹은 list-style-type:none;
+  이렇게하면 스크린 리더가 숫자를 읽지않음.
+  화면엔 숫자가 없지만 스크린 리더가 읽었으면 할때는
+  overflow:hidden; */
+  counter-reset: number;
+}
+
+.favorite-list li {
+  counter-increment: number;
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  /* background-color: lime; */
+}
+
+.favorite-list li::before{
+  content: counter(number);
+  background-color: #aaa;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin-right: 5px;
+  display: inline-block;
+  text-align: center;
+  width: 1.5em;
+  line-height: 1.5;
+}
+
+.favorite-list a {
+  /* background-color: aqua; */
+  /* flex-grow: 1; */
+}
+
+.up, .stop, .down {
+  display: inline-block;
+  width: 20px;
+  height: 11px;
+  background: url("./images/rank.png") no-repeat;
+  margin-left: auto;
+  margin-top: 3px;
+}
+
+.stop{
+  background-position: 0 50%;
+}
+
+.down{
+  background-position: 0 100%;
+}
+
+
+
+.favorite-more {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  padding: 8px;
+}
+
+
+
+/* 슬로건 */
+.slogan {
+  clear: both;
+  /* flow-root를 지원하지 않는 브라우저가 있을수도 있으니 안전하게 대비책으로 넣어놓은 것. */
+  position: relative;
+  padding: 15px 100px 15px 180px;
+}
+
+.slogan-title {
+  width: 110px;
+  height: 83px;
+  line-height: 83px;
+  text-align: center;
+  position: absolute;
+  bottom: -25px;
+  left: 35px;
+}
+
+.slogan-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./images/coffee.png") no-repeat 0 0;
+}
+
+.slogan-content {
+  color: #a09784;
+}
+
+.slogan-content q::before {
+  display: inline-block;
+  font-size: 3rem;
+  transform: translateY(10px);
+}
+.slogan-content q::after {
+  content: "";
+}
+
+
+/* 푸터 */
+.footer {
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+}
+
+.footer-logo {
+  width: 150px;
+  padding: 20px 0 0 35px;
+}
+
+.footer-inner-wrapper {
+  flex: 1 1 auto;
+}
+
+.footer-inner {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.guide-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: #7b8385;
+  color: #fff;
+  border-radius: 30px;
+  padding: 4px 45px;
+  text-transform: uppercase;
+  
+}
+
+.guide-list a {
+  display: block;
+  padding: 6px 10px;
+}
+
+.address, .copyright {
+  display: block;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+

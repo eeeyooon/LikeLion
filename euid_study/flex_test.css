@@ -1,0 +1,48 @@
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  background: #f9f1f0;
+  border: 2px solid black;
+  width: 90vw;
+  height: 200px;
+}
+
+.box {
+  background-color: pink;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* flex 속성
+
+- flex-basis: auto; (기본값) -> auto이면 width,height 속성 우선 / auto가 아니면 flex-basis가 우선
+=> grow는 basis가 auto일때 컨텐츠의 크기를 제외한 나머지 영역을 grow에 반영한다. 
+
+- flex-shrink: 1;(기본값) -> 속성을 정의하지 않아도 자동으로 아이템이 축소, 0을 선언하면 자동 축소 X 
+
+- flex-grow:0; (기본값) -> 적용x거나 0일땐 레이아웃 너비보다 아이템 너비의 합이 작으면 오른쪽 끝에 여백생김.
+
+- flex 
+ 1) 값이 한개일때 > 단위 O: flex-basis, 단위x: flex-grow
+ 2) 값이 두개일때 > 첫번재 값은 단위 x 숫자 (flex-grow), 두번째 값은 단위 x > flex-shrink, 단위 o or auto > flex-basis
+ 3) 값이 세개일때 > flex-grow(단위x) / flex-shrink (단위x) / flex-basis (단위 o or auto)
+*/
+
+.box:nth-child(1) {
+  /* flex:1; */
+  /* -> flex: 1 1 0; */
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pseudo-elements</title>
+</head>
+<style>
+
+/* 어떤 input은 가상요소가 되고 일부는 안됨.
+   어떤 input은 hover가 되고 일부는 안됨. (라디오랑 버튼만 안됨)
+   input 말고도 가상요소와 가상클래스가 안되는 요소는 어떤 것이 있는지
+   가상요소에만 hover등 가상클래스를 줄 수는 없는지? */
+
+  input {
+  display: block;
+  margin-bottom: 30px;
+  }
+
+  input::before {
+    content: attr(type);
+    color: red;
+  }
+
+  input::before:hover {
+    background-color: green;
+  }
+
+  input:hover {
+    background-color: violet;
+  }
+
+</style>
+<body>
+  <input type="button">
+  <input type="checkbox"> 
+  <input type="color">
+  <input type="date">
+  <input type="datetime-local">
+  <input type="email">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="month">
+  <input type="number">
+  <input type="password">
+  <input type="radio">
+  <input type="range">
+  <input type="reset">
+  <input type="search">
+  <input type="submit">
+  <input type="tel">
+  <input type="text">
+  <input type="time">
+  <input type="url">
+  <input type="week">
+</body>
+</html>
