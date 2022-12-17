@@ -1,0 +1,17 @@
+* {
+  /* box-sizing: content-box; */
+}
+
+.container {
+  background-color: yellowgreen;
+  overflow: scroll;
+  border: 5px solid black;
+}
+
+.box {
+  border: 5px solid blue;
+  height: 200px;
+  width: auto;
+  margin: 0 50px;
+  background-color: yellow;
+}
